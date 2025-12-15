@@ -1,0 +1,21 @@
+# Build artifacts ROS2
+build/
+install/
+log/
+
+# Colcon
+.colcon*
+
+# Python
+__pycache__/
+*.pyc
+
+# IDE
+.vscode/
+.idea/
+
+# Archivos muy pesados típicos
+*.bag
+*.db3
+*.log
+
