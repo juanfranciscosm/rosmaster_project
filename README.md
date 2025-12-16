@@ -9,9 +9,12 @@ Fuente: [Automatic Adisson](https://www.youtube.com/playlist?list=PLNWNEEf8BvG64
 - Ubuntu (recomendado 22.04)
 - ROS 2 **Humble**
 - **Gazebo Classic 11**
+- Instalar dependencias desde **yahboomcar_ws/**
+```bash
+rosdep install -i --from-path src --rosdistro $ROS_DISTRO -y
+```
 
-
-## Visualizar simulacion en rviz
+# Visualizar simulacion en rviz
 
 Puedes agregar al final de `~/.bashrc`:
 
