@@ -14,14 +14,14 @@
         <link name="${ns}/${name}">
             <visual>
                 <geometry>
-                    <mesh filename="package://yahboomcar_description/meshes/${path}/${name}.STL"/>
+                    <mesh filename="model://yahboomcar_description/meshes/${path}/${name}.STL"/>
                 </geometry>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <material name="${material}"/>
             </visual>
             <collision>
                 <geometry>
-                    <mesh filename="package://yahboomcar_description/meshes/${path}/${name}.STL"/>
+                    <mesh filename="model://yahboomcar_description/meshes/${path}/${name}.STL"/>
                 </geometry>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
             </collision>
