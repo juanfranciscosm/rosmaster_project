@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot name="yahboomcar" xmlns:xacro="http://wiki.ros.org/xacro">
+    <xacro:arg name="ns" default="yahboomcar"/>
+    <xacro:property name="ns" value="$(arg ns)"/>
+    <xacro:property name="prefix" value="${ns + '_' if ns != '' else ''}"/>
     <material name="Green">
         <color rgba="0 0.7 0 1"/>
     </material>
     <material name="White">
         <color rgba="0.7 0.7 0.7 1"/>
     </material>
-    <xacro:property name="ns" value="$(arg ns)"/>
-    <link name="${ns}/base_footprint"/>
-    <link name="${ns}/imu_link"/>
+    <link name="${prefix}base_footprint"/>
+    <link name="${prefix}bimu_link"/>
     <!-- common link-->
     <xacro:macro name="common_link" params="name material path *origin">
-        <link name="${ns}/${name}">
+        <link name="${prefix}${name}">
             <visual>
                 <geometry>
                     <mesh filename="model://yahboomcar_description/meshes/${path}/${name}.STL"/>
@@ -30,9 +32,9 @@
     </xacro:macro>
     <!-- continuous joint-->
     <xacro:macro name="continuous_joint" params="name parent child xyz rpy axis">
-        <joint name="${ns}/${name}" type="continuous">
-            <parent link="${ns}/${parent}"/>
-            <child link="${ns}/${child}"/>
+        <joint name="${prefix}${name}" type="continuous">
+            <parent link="${prefix}${parent}"/>
+            <child link="${prefix}${child}"/>
             <origin xyz="${xyz}" rpy="${rpy}"/>
             <axis xyz="${axis}"/>
             <limit lower="${-pi}" upper="${pi}" effort="100" velocity="1"/>
@@ -40,9 +42,9 @@
     </xacro:macro>
     <!-- fixed joint-->
     <xacro:macro name="fixed_joint" params="name parent child xyz rpy">
-        <joint name="${ns}/${name}" type="fixed">
-            <parent link="${ns}/${parent}"/>
-            <child link="${ns}/${child}"/>
+        <joint name="${prefix}${name}" type="fixed">
+            <parent link="${prefix}${parent}"/>
+            <child link="${prefix}${child}"/>
             <origin xyz="${xyz}" rpy="${rpy}"/>
         </joint>
     </xacro:macro>
@@ -118,4 +120,54 @@
         </inertial>
     </common_link>
     <fixed_joint name="camera_joint" parent="base_link" child="camera_link" xyz="0.057105 1.7948E-05 0.03755" rpy="0 0 0"/>
+
+    <gazebo reference="${prefix}camera_link">
+        <sensor type="camera" name="rgb_camera">
+            <always_on>true</always_on>
+            <update_rate>30</update_rate>
+            <camera>
+            <horizontal_fov>1.047</horizontal_fov>
+            <image>
+                <width>640</width>
+                <height>480</height>
+                <format>R8G8B8</format>
+            </image>
+            <clip><near>0.05</near><far>50</far></clip>
+            </camera>
+
+            <plugin name="gazebo_ros_camera" filename="libgazebo_ros_camera.so">
+            <ros>
+                <namespace>${ns}</namespace>
+                <remapping>image_raw:=camera/image_raw</remapping>
+                <remapping>camera_info:=camera/camera_info</remapping>
+            </ros>
+            <frame_name>${ns}/camera_link</frame_name>
+            </plugin>
+        </sensor>
+    </gazebo>
+
+    <gazebo reference="${prefix}laser_link">
+        <sensor type="ray" name="lidar">
+            <always_on>true</always_on>
+            <update_rate>10</update_rate>
+            <ray>
+            <scan>
+                <horizontal>
+                <samples>720</samples>
+                <min_angle>-1.5708</min_angle>
+                <max_angle>1.5708</max_angle>
+                </horizontal>
+            </scan>
+            <range><min>0.12</min><max>10.0</max></range>
+            </ray>
+
+            <plugin name="gazebo_ros_laser" filename="libgazebo_ros_ray_sensor.so">
+            <ros>
+                <namespace>${ns}</namespace>
+                <remapping>scan:=scan</remapping>
+            </ros>
+            <frame_name>${ns}/laser_link</frame_name>
+            </plugin>
+        </sensor>
+    </gazebo>
 </robot>
