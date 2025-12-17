@@ -13,6 +13,19 @@ Fuente: [Automatic Adisson](https://www.youtube.com/playlist?list=PLNWNEEf8BvG64
 ```bash
 rosdep install -i --from-path src --rosdistro $ROS_DISTRO -y
 ```
+- Install Ignition Fortress (Ubuntu 22.04 / ROS 2 Humble):
+
+```bash
+sudo apt update
+sudo apt install gz-fortress
+```
+
+Verify Ignition is available:
+
+```bash
+command -v ign
+ign gazebo -h
+```
 
 # Visualizar simulacion en rviz
 
@@ -31,3 +44,18 @@ source ~/.bashrc
 ```bash
 yahbooom
 ```
+
+
+
+## Run a world
+
+From the repository root:
+
+```bash
+cd yahboom_rosmaster_gazebo
+export IGN_GAZEBO_RESOURCE_PATH="$PWD/models:$PWD/worlds:$IGN_GAZEBO_RESOURCE_PATH"
+ign gazebo -r -v 4 worlds/example.world
+```
+
+- `-r` runs in real time  
+- `-v 4` increases verbosity for debugging
