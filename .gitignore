@@ -19,3 +19,6 @@ __pycache__/
 *.db3
 *.log
 
+# Dataset file
+dataset/
+
