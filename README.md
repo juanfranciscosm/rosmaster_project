@@ -1,4 +1,4 @@
-# Yahboomcar X3 en Gazebo (ROS 2 Humble + Gazebo Classic 11)
+# Yahboomcar X3 en Gazebo (ROS2 Jazzy + Gazebo)
 
 Fuente: [Automatic Adisson](https://www.youtube.com/playlist?list=PLNWNEEf8BvG64FVZT4IdieI1PuYnHkUrt)
 
@@ -6,25 +6,12 @@ Fuente: [Automatic Adisson](https://www.youtube.com/playlist?list=PLNWNEEf8BvG64
 
 ## Requisitos
 
-- Ubuntu (recomendado 22.04)
-- ROS 2 **Humble**
+- Ubuntu (recomendado 24.04)
+- ROS 2 **Jazzy Jalisco**
 - **Gazebo Classic 11**
 - Instalar dependencias desde **yahboomcar_ws/**
 ```bash
 rosdep install -i --from-path src --rosdistro $ROS_DISTRO -y
-```
-- Install Ignition Fortress (Ubuntu 22.04 / ROS 2 Humble):
-
-```bash
-sudo apt update
-sudo apt install gz-fortress
-```
-
-Verify Ignition is available:
-
-```bash
-command -v ign
-ign gazebo -h
 ```
 
 # Visualizar simulacion en rviz
