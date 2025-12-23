@@ -3,8 +3,8 @@
 <package format="3">
   <name>yahboom_rosmaster_gazebo</name>
   <version>0.0.0</version>
-  <description>Gazebo simulation support for Yahboom ROSMASTER robotics including worlds and launch files</description>
-  <maintainer email="jfranciscosm99@todo.com">juafrsan</maintainer>
+  <description>Gazebo simulation support for Yahboom ROSMASTER robots including worlds and launch files</description>
+  <maintainer email="automaticaddison@todo.com">ubuntu</maintainer>
   <license>BSD-3-Clause</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>

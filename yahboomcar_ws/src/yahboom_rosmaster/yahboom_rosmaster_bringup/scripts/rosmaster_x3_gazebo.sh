@@ -18,7 +18,7 @@ ros2 launch yahboom_rosmaster_gazebo yahboom_rosmaster.gazebo.launch.py \
     enable_odom_tf:=true \
     headless:=False \
     load_controllers:=true \
-    world_file:=cafe.world \
+    world_file:=house.world \
     use_rviz:=true \
     use_robot_state_pub:=true \
     use_sim_time:=true \
