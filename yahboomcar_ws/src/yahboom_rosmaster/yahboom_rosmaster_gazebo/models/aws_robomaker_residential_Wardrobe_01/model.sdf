@@ -20,6 +20,9 @@
           </mesh>
         </geometry>
       <meta> <layer> 1 </layer></meta>
+      <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label">
+          <label>41</label>
+        </plugin>
 </visual>
     </link>
     <static>1</static>

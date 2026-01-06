@@ -33,7 +33,10 @@
           </mesh>
         </geometry>
       <meta> <layer> 1 </layer></meta>
-</visual>
+      <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label">
+          <label>1</label>
+        </plugin>
+      </visual>
     </link>
   </model>
 </sdf>

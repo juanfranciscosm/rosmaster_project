@@ -23,13 +23,16 @@
         </geometry>
       </collision>
       <visual name="visual">
-	    <geometry>
-          <mesh>
-            <uri>model://aws_robomaker_residential_ChairA_01/meshes/aws_ChairA_01_visual.DAE</uri>
-          </mesh>
-        </geometry>
-      <meta> <layer> 1 </layer></meta>
-</visual>
+        <geometry>
+            <mesh>
+              <uri>model://aws_robomaker_residential_ChairA_01/meshes/aws_ChairA_01_visual.DAE</uri>
+            </mesh>
+          </geometry>
+        <meta> <layer> 1 </layer></meta>
+        <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label">
+          <label>1</label>
+        </plugin>
+      </visual>
     </link>
   </model>
 </sdf>

@@ -73,6 +73,9 @@
           </material>
           <!--  <pose frame=''>0.0 0 0.31 0 -0 0</pose> -->
       <meta> <layer> 1 </layer></meta>
+      <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label">
+          <label>18</label>
+        </plugin>
 </visual>
     </link>
   </model>

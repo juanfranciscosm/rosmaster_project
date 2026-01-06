@@ -156,10 +156,39 @@
         <update_rate>${update_rate}</update_rate>
         <visualize>${visualize}</visualize>
       </sensor>
-    </gazebo>
 
-    <gazebo reference="${prefix}${camera_name}_link">
-      <sensor name="${prefix}${camera_name}_segmentation" type="segmentation">
+      <sensor name="${prefix}${camera_name}_instance_segmentation" type="segmentation">
+        <topic>${camera_name}/panoptic</topic>
+
+        <camera>
+          <!-- semantic | instance | panoptic -->
+          <segmentation_type>instance</segmentation_type>
+
+          <horizontal_fov>${horizontal_fov}</horizontal_fov>
+
+          <image>
+            <width>${image_width}</width>
+            <height>${image_height}</height>
+          </image>
+
+          <clip>
+            <near>${clip_near}</near>
+            <far>${clip_far}</far>
+          </clip>
+          <save enabled="true">
+            <path>/home/robotica-cidis/Documentos/rosmaster_project/dataset/segmentation_data/instance_camera</path>
+          </save>
+        </camera>
+
+        <always_on>${always_on}</always_on>
+        <update_rate>${update_rate}</update_rate>
+        <visualize>true</visualize>
+
+        <!-- MUY IMPORTANTE -->
+        <gz_frame_id>${prefix}${camera_name}_color_optical_frame</gz_frame_id>
+      </sensor>
+
+      <sensor name="${prefix}${camera_name}_semantic_segmentation" type="segmentation">
         <topic>${camera_name}/segmentation</topic>
 
         <camera>
@@ -177,6 +206,9 @@
             <near>${clip_near}</near>
             <far>${clip_far}</far>
           </clip>
+          <save enabled="true">
+            <path>/home/robotica-cidis/Documentos/rosmaster_project/dataset/segmentation_data/semantic_camera</path>
+          </save>
         </camera>
 
         <always_on>${always_on}</always_on>
