@@ -18,6 +18,9 @@
             <scale>0.01 0.01 0.01</scale>
           </mesh>
         </geometry>
+        <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label">
+            <label>111</label>
+        </plugin>
       </visual>
     </link>
     <link name="no_sink">
@@ -29,7 +32,11 @@
             <scale>0.01 0.01 0.01</scale>
           </mesh>
         </geometry>
+        <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label">
+            <label>111</label>
+          </plugin>
       </visual>
+      
     </link>
   </model>
 </sdf>

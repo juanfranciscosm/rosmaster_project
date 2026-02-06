@@ -10,6 +10,9 @@
                     <uri>model://mustard/meshes/mustard.dae</uri>
                 </mesh>
             </geometry>
+            <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label">
+          <label>84</label>
+        </plugin>
         </visual>
         <collision name="collision">
             <geometry>

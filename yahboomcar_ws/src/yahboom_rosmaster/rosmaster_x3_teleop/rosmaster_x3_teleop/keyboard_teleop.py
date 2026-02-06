@@ -60,7 +60,7 @@ class KeyboardTeleop(Node):
         self.declare_parameter("scale", 1.0)
         self.declare_parameter("scale_step", 0.1)
         self.declare_parameter("scale_min", 0.1)
-        self.declare_parameter("scale_max", 2.5)
+        self.declare_parameter("scale_max", 5)
 
         # Publicación / seguridad
         self.declare_parameter("publish_rate", 20.0)   # Hz

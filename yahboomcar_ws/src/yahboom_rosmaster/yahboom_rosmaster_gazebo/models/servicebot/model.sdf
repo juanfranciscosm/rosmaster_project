@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="servicebot">
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://servicebot/meshes/servicebot.obj</uri>
+            <scale>0.01 0.01 0.01</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://servicebot/meshes/servicebot.obj</uri>
+            <scale>0.01 0.01 0.01</scale>
+          </mesh>
+        </geometry>
+        <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label">
+          <label>94</label>
+        </plugin>
+      </visual>
+    </link>
+  </model>
+</sdf>

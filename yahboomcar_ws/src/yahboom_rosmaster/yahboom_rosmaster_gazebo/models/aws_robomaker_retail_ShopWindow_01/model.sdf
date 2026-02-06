@@ -19,6 +19,9 @@
             <uri>model://aws_robomaker_retail_ShopWindow_01/meshes/aws_ShopWindow_01_visual.DAE</uri>
           </mesh>
         </geometry>
+        <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label">
+          <label>31</label>
+        </plugin>
       </visual>
     </link>
 	<static>1</static>

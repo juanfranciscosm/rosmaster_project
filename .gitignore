@@ -19,6 +19,14 @@ __pycache__/
 *.db3
 *.log
 
-# Dataset file
-segmentation_data/
 
+# =========================
+# Dataset generado (NO versionar)
+# =========================
+dataset/**/depth/**
+dataset/**/rgb/**
+dataset/**/seg_colored/**
+dataset/**/seg_labels/**
+
+# Binarios/instaladores
+*.deb

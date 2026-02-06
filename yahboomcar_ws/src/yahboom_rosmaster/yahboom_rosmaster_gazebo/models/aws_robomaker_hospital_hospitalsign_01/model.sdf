@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="aws_robomaker_hospital_hospitalsign_01">
+    <link name="link">
+      <visual name="visual">
+	    <geometry>
+          <mesh>
+            <uri>model://aws_robomaker_hospital_hospitalsign_01/meshes/aws_robomaker_hospital_hospitalsign_01_visual.dae</uri>
+          </mesh>
+        </geometry>
+        <plugin filename="gz-sim-label-system" name="gz::sim::systems::Label">
+          <label>46</label>
+        </plugin>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://aws_robomaker_hospital_hospitalsign_01/meshes/aws_robomaker_hospital_hospitalsign_01_collision.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>    
+</link>
+  <static>1</static>
+  </model>
+</sdf>
